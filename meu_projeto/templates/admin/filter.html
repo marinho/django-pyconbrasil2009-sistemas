@@ -1,0 +1,12 @@
+{% load i18n %}
+<h3>{% blocktrans with title as filter_title %} By {{ filter_title }} {% endblocktrans %}</h3>
+
+{# Ajuste no filtro para ficar como drop down (select) e evitar problema de listas longas #}
+<select class="admin_filter">
+{% for choice in choices %}
+    <option{% if choice.selected %} selected="selected"{% endif %} value="{{ choice.query_string|iriencode }}">
+    {{ choice.display }}
+    </option>
+{% endfor %}
+</select>
+

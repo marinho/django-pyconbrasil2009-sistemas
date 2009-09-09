@@ -1,0 +1,10 @@
+*.pyc
+Thumbs.db
+.svn
+.bzr
+.*.swp
+local_settings.py
+dados.db
+admin_media
+*.log
+djapian_db/*

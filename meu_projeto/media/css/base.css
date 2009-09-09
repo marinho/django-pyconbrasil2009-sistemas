@@ -1,0 +1,35 @@
+/* Customização do layout */
+.esquerda_limitado {
+    margin-right: 310px;
+}
+
+.direita_flutuante {
+    float: right;
+    width: 300px;
+}
+
+/* Customização dos filtros laterais */
+select.admin_filter {
+    width: 140px;
+    margin-left: 10px;
+}
+
+/* Customização do Admin */
+body {
+    background: #eee;
+}
+
+.module {
+    border-color: gray;
+}
+
+.inner {
+    margin: 5px;
+}
+
+/* Customização de campos */
+
+.valor_decimal {
+    text-align: right;
+}
+
