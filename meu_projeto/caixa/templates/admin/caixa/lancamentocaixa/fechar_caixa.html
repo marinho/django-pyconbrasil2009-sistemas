@@ -33,8 +33,10 @@
 </div>
 {% endblock %}
 
+{# Listagem criada manualmente, sem inline #}
 {% block content %}{{ block.super }}
-<div class="module">
+<fieldset class="module">
+    <h2>Sumário da Composição</h2>
     <table style="width: 100%">
         <thead>
             <tr>
@@ -62,7 +64,7 @@
             </tr>
         </tfoot>
     </table>
-</div>
+</fieldset>
 
 <div class="submit-row">
     <input type="submit" value="Concluir Fechamento"/>

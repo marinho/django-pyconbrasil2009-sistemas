@@ -38,6 +38,15 @@ class AdminLancamentoCaixa(ModelAdminMultiEmpresa):
     search_fields = ('numero_documento','observacao',)
     tipo_composicao = None
     form = FormLancamentoCaixa
+    fieldsets = (
+            (u'Observação', {
+                'fields': ('observacao',),
+                'classes': ('wide','direita_flutuante')}),
+            (None, {
+                'fields': ('empresa','data','numero_documento','valor',
+                    'tipo_operacao'),
+                'classes': ('wide','esquerda_limitado')}),
+            )
 
     def changelist_view(self, request, extra_context=None):
         extra_context = extra_context or {}

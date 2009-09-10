@@ -1,19 +1,18 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls.defaults import *
 from django.conf import settings
-
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-admin.autodiscover()
-
-# Funções de Admin customizado
-from utils.admin import force_date_formats #, AdminSite
 
 # Muda classe do AdminSite para classe customizada
-#admin.site = AdminSite()
+from utils.admin import AdminSite
+admin.site = AdminSite()
 
 # Força os formatos de data para utilizar os definidos pelas settings
+from utils.admin import force_date_formats #, AdminSite
 force_date_formats()
+
+# Uncomment the next two lines to enable the admin:
+admin.autodiscover()
 
 urlpatterns = patterns('',
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 

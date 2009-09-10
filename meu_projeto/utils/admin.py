@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib.admin.options import ModelAdmin as OriginalModelAdmin,\
         TabularInline as OriginalTabularInline
-#from django.contrib.admin.sites import AdminSite as OriginalSite
+from django.contrib.admin.sites import AdminSite as OriginalAdminSite
 from django.conf import settings
 from django.db.models.fields import FieldDoesNotExist
 from django.db import models
@@ -15,9 +15,14 @@ from currency_fields import CurrencyField, CurrencyInput
 from datetime_fields import DateWidget, DATE_INPUT_FORMAT
 from widgets import IntegerInput
 
-#class AdminSite(OriginalSite):
-#    u"""Classe para sobrepor o site do Admin, para customizar o Admin"""
-#    pass
+class AdminSite(OriginalAdminSite):
+    u"""Classe para sobrepor o site do Admin, para customizar o Admin"""
+
+    def index(self, request, extra_context=None):
+        request.user.message_set.create(message=u'Olá %s, seja bem-vindo!'%(
+            request.user.get_full_name() or request.user.username,
+            ))
+        return super(AdminSite, self).index(request, extra_context=extra_context)
 
 class ModelAdmin(OriginalModelAdmin):
     u"""Classe para customizar campos. Todas classes ModelAdmin do sistema
@@ -59,11 +64,6 @@ class ModelAdmin(OriginalModelAdmin):
 
         # Define campos e seus novos tipos e widgets para a realidade brasileira
         change_form_fields(form)
-
-        # Força caixa-alta na digitação
-        for field in form.base_fields.values():
-            if isinstance(field, forms.CharField) and not isinstance(field, (forms.EmailField, forms.URLField)):
-                field.widget.attrs['class'] = field.widget.attrs.get('class', '') + ' forca_caixa_alta'
 
         return form
 
@@ -119,6 +119,10 @@ def change_form_fields(form):
         # Campos de números inteiros
         elif isinstance(field, forms.IntegerField):
             field.widget = IntegerInput()
+
+        # Força caixa-alta (maiúsculas) na digitação
+        if isinstance(field, forms.CharField) and not isinstance(field, (forms.EmailField, forms.URLField)):
+            field.widget.attrs['class'] = field.widget.attrs.get('class', '') + ' forca_caixa_alta'
 
     return form
 

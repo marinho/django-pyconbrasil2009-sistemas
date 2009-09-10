@@ -1,42 +1,41 @@
-- URL '' -> admin.root - no fim da urlpatterns
-- Templates admin_original
+x- URL '' -> admin.root - no fim da urlpatterns
+x- Templates admin_original
 - Listagem
-	- Mudando a formatação de data
-	- Mudando a formatação de valor decimal
-	- Filtros em <select>
-	- Sumário com totalizações
-	- Outros filtros abaixo do search
-	- Filtros através do request.GET
+x	- Mudando a formatação de data
+x	- Mudando a formatação de valor decimal
+x	- Filtros em <select>
+x	- Sumário com totalizações
+x	- Outros filtros abaixo do search
+x	- Filtros através do request.GET
 - Edição
-	- Formatação de data
-	- Formatação de valor decimal
-	- Campos com máscara
-	- Mostrando listagem sem edição
-	- Acrescentando botões à barra
-	- Acrescentando links ao object-tools
-	- Mudando o layout
-	- Campos de números inteiros
-	- Forçando maiúsculas
-	- Desabilitar tecla enter
-	- Campos de somente-leitura
-	- Valor initial para campos via request.GET
-- Localização estrangeira com AjaxFKWidget
-- Customizando classes
-	- ModelAdmin
-	- TabularInline
-	- StackedInline
-- ModelAdmin
-	- queryset
-	- Aplicando parâmetro não esperado no request.GET (changelist_view)
-- Sistema multi-empresa
-	- ModelAdmin com filtros
-	- Seleção de empresa (?)
+x	- Formatação de data
+x	- Formatação de valor decimal
+x	- Campos com máscara
+x	- Mostrando listagem sem edição
+x	- Acrescentando links ao object-tools
+x	- Mudando o layout
+x	- Campos de números inteiros
+x	- Forçando maiúsculas
+x	- Desabilitar tecla enter
+x	- Campos de somente-leitura
+x	- Valor initial para campos via request.GET
+x- Localização estrangeira com AjaxFKWidget
+x- Customizando classes
+x	- ModelAdmin
+x	- TabularInline
+x	- StackedInline
+x- ModelAdmin
+x	- queryset
+x	- Aplicando parâmetro não esperado no request.GET (changelist_view)
+x- Sistema multi-empresa
+x	- ModelAdmin com filtros
+x	- Seleção de empresa (?)
 - URLs extras
-	- get_urls
-	- Template base_limpo.html
-	- title
-	- Acrescentando links ao breadcrumbs
-	- Permissões
+x	- get_urls
+x	- Template base_limpo.html
+x	- title
+x	- Acrescentando links ao breadcrumbs
+x	- Permissões
 
 Desejáveis:
 
@@ -50,4 +49,5 @@ Desejáveis:
 	- Site
 - Actions
 - Bloqueando alteração/edição de objeto
+- Acrescentando botões à barra
 

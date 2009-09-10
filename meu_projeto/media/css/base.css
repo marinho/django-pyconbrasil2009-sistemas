@@ -1,11 +1,11 @@
 /* Customização do layout */
 .esquerda_limitado {
-    margin-right: 310px;
+    margin-right: 510px;
 }
 
 .direita_flutuante {
     float: right;
-    width: 300px;
+    width: 500px;
 }
 
 /* Customização dos filtros laterais */
@@ -31,5 +31,9 @@ body {
 
 .valor_decimal {
     text-align: right;
+}
+
+textarea {
+    height: 100px;
 }
 

@@ -65,5 +65,10 @@ $(document).ready(function(){
 
     // CEP
     $('.carregar_cep').change(carregar_cep_on_change);
+
+    // Inputs - forçando caixa alta
+    $('.forca_caixa_alta').change(function(){
+        $(this).val($(this).val().toUpperCase());
+    });
 });
 

@@ -24,9 +24,4 @@ $(document).ready(function(){
 
     // Telefone
     $('.mascara_telefone').mask('(99)9999-9999');
-
-    // Inputs forçando caixa alta
-    $('.forca_caixa_alta').change(function(){
-        $(this).val($(this).val().toUpperCase());
-    });
 });

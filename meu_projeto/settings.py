@@ -30,9 +30,9 @@ TIME_ZONE = 'America/Sao_Paulo'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'pt-br'
 
-MONETARY_LOCALE = 'pt_BR.UTF8'
-DATE_FORMAT = 'd/m/Y'
-DATETIME_FORMAT = 'd/m/Y H:i'
+MONETARY_LOCALE = 'pt_BR.UTF8'  # usada pela template tag 'moneyformat', do django-plus
+DATE_FORMAT = 'd/m/Y'           # usada na listagem do Admin
+DATETIME_FORMAT = 'd/m/Y H:i'   # usada na listagem do Admin
 
 SITE_ID = 1
 
@@ -68,7 +68,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'pagination.middleware.PaginationMiddleware',
+
+    'pagination.middleware.PaginationMiddleware',   # usada pelo widget AjaxFKWidget, do django-plus
 )
 
 ROOT_URLCONF = 'urls'
