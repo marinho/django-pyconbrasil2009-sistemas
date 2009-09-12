@@ -61,3 +61,4 @@ class LancamentoCaixaComposicao(models.Model):
     tipo_composicao = models.ForeignKey(TipoComposicao)
     valor = models.DecimalField(max_digits=12, decimal_places=2)
 
+

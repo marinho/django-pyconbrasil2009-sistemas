@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
     (r'^doc/', include('django.contrib.admindocs.urls')),
+
+    (r'^filtrar-empresas/$', 'sistema.views.filtrar_empresas'),
 )
 
 # Ajax FK Widget

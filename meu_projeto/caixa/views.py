@@ -15,6 +15,7 @@ def fechar_caixa(request):
                     valor=Sum('valor'),
                     quantidade=Count('tipo_composicao'),
                     )
+    print composicao
 
     soma_valor = sum([comp['valor'] for comp in composicao])
     soma_quantidade = sum([comp['quantidade'] for comp in composicao])

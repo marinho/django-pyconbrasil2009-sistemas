@@ -10,7 +10,12 @@ class AdminEmpresa(ModelAdmin):
     pass
 
 class ModelAdminMultiEmpresa(ModelAdmin):
-    pass
+    def change_view(self, request, object_id, extra_context=None):
+        extra_context = extra_context or {}
+
+        extra_context['empresas'] = Empresa.objects.all()
+
+        return super(ModelAdminMultiEmpresa, self).change_view(request, object_id, extra_context)
 
 admin.site.register(Empresa, AdminEmpresa)
 

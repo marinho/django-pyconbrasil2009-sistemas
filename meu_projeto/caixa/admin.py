@@ -9,6 +9,7 @@ from sistema.admin import ModelAdminMultiEmpresa
 from utils.admin import ModelAdmin, TabularInline
 from utils.read_only import ReadOnlyTextWidget
 
+from sistema.models import Empresa
 from models import LancamentoCaixa, TipoComposicao, LancamentoCaixaComposicao,\
         TIPO_OPERACAO_CREDITO, TIPO_OPERACAO_DEBITO
 

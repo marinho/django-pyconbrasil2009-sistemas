@@ -24,3 +24,16 @@
     });
 </script>
 {% endblock extrahead %}
+
+{% block form_top %}
+<fieldset class="module">
+    <h2>Empresas no sistema</h2>
+
+    <table id="lista_empresas">
+        {% for empresa in empresas %}
+        <tr><td>{{ empresa }}</td></tr>
+        {% endfor %}
+    </table>
+</fieldset>
+{% endblock form_top %}
+

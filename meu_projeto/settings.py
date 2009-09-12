@@ -30,7 +30,7 @@ TIME_ZONE = 'America/Sao_Paulo'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'pt-br'
 
-MONETARY_LOCALE = 'pt_BR.UTF8'  # usada pela template tag 'moneyformat', do django-plus
+MONETARY_LOCALE = 'pt_BR.UTF8'  # usada pela template tag 'moneyformat', do django-plus. Depende da locale equivalente
 DATE_FORMAT = 'd/m/Y'           # usada na listagem do Admin
 DATETIME_FORMAT = 'd/m/Y H:i'   # usada na listagem do Admin
 
@@ -70,6 +70,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 
     'pagination.middleware.PaginationMiddleware',   # usada pelo widget AjaxFKWidget, do django-plus
+    #'utils.profiling.ProfileMiddleware', # implementa profiling no Projeto (usa a setting PROFILE_DIR)
 )
 
 ROOT_URLCONF = 'urls'
@@ -91,7 +92,11 @@ INSTALLED_APPS = (
 
     'djangoplus',
     'pagination',
+    'django_extensions',
 
     'sistema',
     'caixa',
 )
+
+#PROFILE_DIR = os.path.join(PROJECT_ROOT_PATH, 'profiling')
+

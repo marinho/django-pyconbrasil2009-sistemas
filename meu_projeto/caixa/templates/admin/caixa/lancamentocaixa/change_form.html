@@ -1,0 +1,28 @@
+{% extends "admin/change_form.html" %}
+
+{% block extrahead %}{{ block.super }}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#id_filtro_empresa').change(function(){
+            $.getJSON('/filtrar-empresas/?filtro='+$(this).val(), function(json){
+                var lista = $('#lista_empresas');
+
+                // Limpa empresas da lista
+                lista.empty();
+
+                for (var i=0; i<json.length; i++) {
+                    $('<tr><td>'+json[i].nome+'</td></tr>').appendTo(lista);
+                }
+            });
+        });
+    });
+</script>
+{% endblock extrahead %}
+
+{% block form_top %}{{ block.super }}
+<div class="module" style="padding: 5px">
+    Digite 'loja' ou 'matriz' para filtrar empresas na listagem:
+    <input type="text" id="id_filtro_empresa"/>
+</div>
+{% endblock form_top %}
+
