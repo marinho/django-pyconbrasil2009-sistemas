@@ -69,5 +69,15 @@
 <div class="submit-row">
     <input type="submit" value="Concluir Fechamento"/>
 </div>
+
+{% if lancamento %}
+<fieldset class="module">
+    <h2>Último Lançamento</h2>
+
+    <table class="info">
+        {% model_info_for_object 'caixa.info.InfoLancamentoCaixa' lancamento %}
+    </table>
+</fieldset>
+{% endif %}
 {% endblock content %}
 

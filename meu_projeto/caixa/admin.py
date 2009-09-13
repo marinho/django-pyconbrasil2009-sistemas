@@ -80,6 +80,7 @@ class AdminLancamentoCaixa(ModelAdminMultiEmpresa):
 
         minhas_urls = patterns('caixa.views',
                 url(r'^fechar/$', 'fechar_caixa', name='fechar_caixa'),
+                url(r'^editar-muitos/$', 'editar_muitos', name='editar_muitos'),
                 )
 
         return minhas_urls + urls
