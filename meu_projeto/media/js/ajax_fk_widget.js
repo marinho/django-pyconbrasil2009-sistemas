@@ -1,1 +1,0 @@
-/home/marinho/Projects/django-plus/djangoplus/media/ajax_fk_widget.js
