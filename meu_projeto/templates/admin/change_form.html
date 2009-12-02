@@ -1,0 +1,39 @@
+{% extends "admin_original/change_form.html" %}
+
+{% block extrahead %}{{ block.super }}
+<script src="{{ MEDIA_URL }}js/jquery.maskedinput.js" type="text/javascript"></script>
+<script src="{{ MEDIA_URL }}js/utils.js" type="text/javascript"></script>
+<script src="{{ MEDIA_URL }}js/mascara.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        {# Se o objeto não pode ser modificado, oculta botões de "Salvar" #}
+        {% if original.cannot_save_on_form %}
+            $('input[name=_save], input[name=_addanother], input[name=_continue]').hide();
+        {% endif %}
+
+        {# Se o objeto não pode ser excluído, oculta link "Apagar" #}
+        {% if original.cannot_delete_on_form %}
+            $('p.deletelink-box').hide();
+        {% endif %}
+
+        {# Posiciona foco no primeiro campo do formulário #}
+        var inputs = $('#content-main').find('form').find(':input');
+        var i = 0;
+        while ($(inputs[i]).attr('type') == 'hidden') i++;
+        $(inputs[i]).focus();
+    });
+</script>
+{% endblock extrahead %}
+
+{% block form_top %}
+<fieldset class="module">
+    <h2>Empresas no sistema</h2>
+
+    <table id="lista_empresas">
+        {% for empresa in empresas %}
+        <tr><td>{{ empresa }}</td></tr>
+        {% endfor %}
+    </table>
+</fieldset>
+{% endblock form_top %}
+

@@ -1,0 +1,21 @@
+Dependencias
+============
+
+(Procure no Google)
+
+- django-plus
+- django-pagination
+- django-command-extensions
+
+Symlinks necessários
+====================
+
+- templates/admin_original -> django/contrib/admin/templates/admin
+- media/css/ajax_fk_widget.css -> djangoplus/media/ajax_fk_widget.css
+- media/js/ajax_fk_widget.js -> djangoplus/media/ajax_fk_widget.js
+
+Outras coisas
+=============
+
+Ao executar o syncdb, alguns dados serão inseridos na base, através
+dos fixtures 'initial_data.json'

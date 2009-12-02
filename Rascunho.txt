@@ -1,0 +1,53 @@
+x- URL '' -> admin.root - no fim da urlpatterns
+x- Templates admin_original
+x- Listagem
+x	- Mudando a formatação de data
+x	- Mudando a formatação de valor decimal
+x	- Filtros em <select>
+x	- Sumário com totalizações
+x	- Outros filtros abaixo do search
+x	- Filtros através do request.GET
+- Edição
+x	- Formatação de data
+x	- Formatação de valor decimal
+x	- Campos com máscara
+x	- Mostrando listagem sem edição
+x	- Acrescentando links ao object-tools
+x	- Mudando o layout
+x	- Campos de números inteiros
+x	- Forçando maiúsculas
+x	- Desabilitar tecla enter
+x	- Campos de somente-leitura
+x	- Valor initial para campos via request.GET
+x- Localização estrangeira com AjaxFKWidget
+x- Customizando classes
+x	- ModelAdmin
+x	- TabularInline
+x	- StackedInline
+x- ModelAdmin
+x	- queryset
+x	- Aplicando parâmetro não esperado no request.GET (changelist_view)
+x- Sistema multi-empresa
+x	- ModelAdmin com filtros
+x	- Seleção de empresa (?)
+- URLs extras
+x	- get_urls
+x	- Template base_limpo.html
+x	- title
+x	- Acrescentando links ao breadcrumbs
+x	- Permissões
+
+Desejáveis:
+
+- Template tags {% change_get_params %} e {% remove_get_param %}
+- Integração via API
+- Ajax com jQuery
+- Browser em XULRunner
+- Teclas de atalho
+- Geraldo para geração de relatórios
+- Customizando classes
+	- Site
+- Actions
+- Bloqueando alteração/edição de objeto
+- Acrescentando botões à barra
+

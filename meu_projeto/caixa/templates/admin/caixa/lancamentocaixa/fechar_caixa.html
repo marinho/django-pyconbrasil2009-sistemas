@@ -1,0 +1,83 @@
+{% extends "admin/base_limpo.html" %}
+
+{% load djangoplus_tags adminmedia i18n %}
+
+{% block extrahead %}{{ block.super }}
+<link type="text/css" rel="stylesheet" href="{% admin_media_prefix %}css/forms.css"/>
+<style type="text/css">
+    tfoot {
+        font-weight: bold;
+    }
+
+    .decimal {
+        text-align: right;
+    }
+</style>
+{% endblock extrahead %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="/">
+        {% trans "Home" %}
+    </a>
+    &rsaquo; 
+    <a href="../../">
+        Caixa
+    </a>
+    &rsaquo; 
+    <a href="../">
+        Lançamentos de Caixa
+    </a>
+    &rsaquo; 
+    Fechamento de Caixa
+</div>
+{% endblock %}
+
+{# Listagem criada manualmente, sem inline #}
+{% block content %}{{ block.super }}
+<fieldset class="module">
+    <h2>Sumário da Composição</h2>
+    <table style="width: 100%">
+        <thead>
+            <tr>
+                <th>Tipo de Composição</th>
+                <th class="decimal">Valor Total</th>
+                <th class="decimal">Quantidade Lançamentos</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for comp in composicao %}
+            <tr>
+                <td>{{ comp.tipo_composicao__nome }}</td>
+                <td class="decimal">{{ comp.valor|moneyformat }}</td>
+                <td class="decimal">{{ comp.quantidade }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td>Total da Composição</td>
+                <td class="decimal">{{ soma_valor|moneyformat }}</td>
+                <td class="decimal">{{ soma_quantidade|moneyformat }}</td>
+            </tr>
+        </tfoot>
+    </table>
+</fieldset>
+
+<div class="submit-row">
+    <input type="submit" value="Concluir Fechamento"/>
+</div>
+
+{% if lancamento %}
+<fieldset class="module">
+    <h2>Último Lançamento</h2>
+
+    <table class="info">
+        {% model_info_for_object 'caixa.info.InfoLancamentoCaixa' lancamento %}
+    </table>
+</fieldset>
+{% endif %}
+{% endblock content %}
+

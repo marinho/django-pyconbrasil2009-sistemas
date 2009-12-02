@@ -1,0 +1,26 @@
+{% extends "admin/change_list.html" %}
+
+{% load djangoplus_tags %}
+
+{% block search %}{{ block.super }}
+<div class="actions">
+    <form class="inner">
+        Tipo de Composição: {{ form_tipo_comp.tipo_composicao }}
+        <input type="submit" value="Filtrar"/>
+    </form>
+</div>
+{% endblock search %}
+
+{% block result_list %}{{ block.super }}
+<div class="sumario">
+    <div class="inner">
+        <b>Saldo:</b> {{ valor_total|moneyformat }}<br/>
+        <b>Lançamentos:</b> {{ quantidade }}
+    </div>
+</div>
+{% endblock result_list %}
+
+{% block object-tools %}{{ block.super }}
+<li class="object-tools-button-begin"><a href="fechar/">Fechar Caixa</a></li>
+{% endblock object-tools %}
+
