@@ -1,5 +1,5 @@
 # Django settings for meu_projeto project.
-import os
+import os, platform
 PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 LOCAL = True
@@ -30,7 +30,15 @@ TIME_ZONE = 'America/Sao_Paulo'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'pt-br'
 
-MONETARY_LOCALE = 'pt_BR.UTF8'  # usada pela template tag 'moneyformat', do django-plus. Depende da locale equivalente
+# Usada pela template tag 'moneyformat', do django-plus. Depende da locale equivalente
+THOUSANDS_SEPARATOR = ''
+MONETARY_LOCALE = {
+        'darwin': ('pt_BR.utf-8'),      # Mac OS X
+        'linux': 'pt_BR.UTF8',          # Linux
+        'windows': 'ptb',               # Windows
+        }.get(platform.uname()[0].lower(), 'pt_BR.UTF8')
+
+# Formatação de datas
 DATE_FORMAT = 'd/m/Y'           # usada na listagem do Admin
 DATETIME_FORMAT = 'd/m/Y H:i'   # usada na listagem do Admin
 
